@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <td>project id</td>
+        <td>name</td>
+        <td>IAM</td>
+        <td>Services</td>
+    </tr>
+    </thead>
+    {% for project in projects %}
+    <tr>
+        <td>
+            <a href="http://gae-worm-dot-{{ project['projectId'] }}.appspot.com/">{{
+                project['projectId'] }}</a></td>
+        <td>{{ project['name'] }}</td>
+        <td><a href="/iam?project={{ project['projectId'] }}">IAM</a></td>
+        <td><a href="/services?project={{ project['projectId'] }}">Services</a>
+        </td>
+        <td><a href="/serviceAccounts?project={{ project['projectId'] }}">Service
+            accounts</a></td>
+        <td><a href="/deploy?project={{ project['projectId'] }}"
+               class="btn btn-default" role="button">Deploy worm</a></td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

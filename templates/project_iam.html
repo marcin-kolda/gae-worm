@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+<h4>IAM permissions for project: {{ project_id }}</h4>
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <td>type</td>
+        <td>member</td>
+        <td>role</td>
+    </tr>
+    </thead>
+{% for binding in bindings %}
+{% for member in binding['members'] %}
+<tr>
+    <td>{{ member.split(":")[0] }}</td>
+    <td>{{ member.split(":")[1] }}</td>
+    <td>{{ binding['role'] }}</td>
+</tr>
+{% endfor %}
+{% endfor %}
+</table>
+{% endblock %}
+

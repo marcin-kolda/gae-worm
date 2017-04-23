@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+<h4>Services for project: {{ project_id }}</h4>
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <td>service name</td>
+    </tr>
+    </thead>
+    {% for service in services %}
+    <tr>
+        <td>{{ service['serviceName'] }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<a href="/services?project={{ project_id }}&service=cloudresourcemanager.googleapis.com"
+   class="btn btn-default" role="button">Enable cloudresourcemanager.googleapis.com</a>
+
+<a href="/services?project={{ project_id }}&service=appengine.googleapis.com"
+   class="btn btn-default" role="button">Enable appengine.googleapis.com</a>
+
+<a href="/services?project={{ project_id }}&service=iam.googleapis.com"
+   class="btn btn-default" role="button">Enable iam.googleapis.com</a>
+
+{% endblock %}
+

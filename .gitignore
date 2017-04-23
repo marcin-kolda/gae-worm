@@ -1,0 +1,6 @@
+lib
+
+*.pyc
+
+# IDE
+*.iml
